@@ -1,4 +1,4 @@
-package webserver
+package web
 
 import (
 	"encoding/json"
@@ -25,10 +25,11 @@ func (wch *WebCategoryHandler) GetCategories(w http.ResponseWriter, r *http.Requ
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
 	json.NewEncoder(w).Encode(categories)
 }
 
-func (wch *WebCategoryHandler) GetCategorys(w http.ResponseWriter, r *http.Request) {
+func (wch *WebCategoryHandler) GetCategory(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	if id == "" {
 		http.Error(w, "id is required", http.StatusBadRequest)

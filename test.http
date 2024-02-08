@@ -1,0 +1,14 @@
+#### CREATE categories
+POST http://localhost:8080/category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "name": "Category Test",
+    "description": "This is a test category"
+}
+
+#### GET categories
+GET http://localhost:8080/category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json

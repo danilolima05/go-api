@@ -1,4 +1,4 @@
-package webserver
+package web
 
 import (
 	"encoding/json"
@@ -43,9 +43,9 @@ func (wch *WebProductHandler) GetProduct(w http.ResponseWriter, r *http.Request)
 }
 
 func (wch *WebProductHandler) GetProductByCategoryId(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
+	id := chi.URLParam(r, "categoryId")
 	if id == "" {
-		http.Error(w, "id is required", http.StatusBadRequest)
+		http.Error(w, "categoryId is required", http.StatusBadRequest)
 		return
 	}
 	product, err := wch.ProductService.ProductDB.GetProductsByCategoryId(id)
